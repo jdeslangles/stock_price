@@ -1,0 +1,23 @@
+<header>
+  <h1><%=@quote ? @quote.name : "Stock" %></h1> <!-- ternary: if quote is truthy, do quote.name, or go for stock -->
+</header>
+
+<form action='/' method='get'>
+  <input type='text' name ='symbol' autofocus>
+  <button>Get quote</button>
+</form>
+
+
+<%= @quote.lastTrade if @quote %>
+
+<% if false && @quote %>   <!-- for now, it's never going to run this bit of code, because false is NEVER true!  -->
+  <table>
+    <% @quote.each_pair do |key, value| %>
+      <tr>
+        <td><%= key %></td>
+        <td><%= value %></td>
+      </tr>
+    <%end%>
+  </table>
+
+<% end %>
